@@ -1,3 +1,4 @@
+import router from '@ohos.router';
 @Preview
 @Entry
 @Component
@@ -11,12 +12,13 @@ struct Login {
       Image(src)
     }
     .height($r('app.float.other_login_image_size'))
+
     .width($r('app.float.other_login_image_size'))
     .backgroundColor($r('app.color.background'))
   }
 
   login(): void {
-    console.log('login clicked');
+    router.replaceUrl({ url: 'pages/MainPage' });
   }
 
   build() {
