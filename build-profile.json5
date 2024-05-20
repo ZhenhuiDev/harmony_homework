@@ -1,0 +1,41 @@
+{
+  "app": {
+    "signingConfigs": [
+      {
+        "name": "default",
+        "type": "HarmonyOS",
+        "material": {
+          "certpath": "/Users/zhenhui.xu/.ohos/config/auto_debug_Todo_com.sleep.todo_260086000246027110.cer",
+          "storePassword": "0000001B06C7DF4F3D96836D8CD568A95D73D73EFC52CC0713B04177C611CD2898EE4238B3ED327A6773A4",
+          "keyAlias": "debugKey",
+          "keyPassword": "0000001B528DC7F4F792827FB4A66CDF8A900CA399FC5ADCE2CBD258A1D3A24E01740532C4B6D1EDB50730",
+          "profile": "/Users/zhenhui.xu/.ohos/config/auto_debug_Todo_com.sleep.todo_260086000246027110.p7b",
+          "signAlg": "SHA256withECDSA",
+          "storeFile": "/Users/zhenhui.xu/.ohos/config/auto_debug_Todo_com.sleep.todo_260086000246027110.p12"
+        }
+      }
+    ],
+    "compileSdkVersion": 9,
+    "compatibleSdkVersion": 9,
+    "products": [
+      {
+        "name": "default",
+        "signingConfig": "default",
+      }
+    ]
+  },
+  "modules": [
+    {
+      "name": "entry",
+      "srcPath": "./entry",
+      "targets": [
+        {
+          "name": "default",
+          "applyToProducts": [
+            "default"
+          ]
+        }
+      ]
+    }
+  ]
+}
