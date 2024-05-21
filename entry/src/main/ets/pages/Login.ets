@@ -1,4 +1,5 @@
 import router from '@ohos.router';
+import prompt from '@ohos.prompt';
 @Preview
 @Entry
 @Component
@@ -18,7 +19,12 @@ struct Login {
   }
 
   login(): void {
-    router.replaceUrl({ url: 'pages/MainPage' });
+    if (this.account === '' || this.password === '') {
+      prompt.showToast({ message: getContext().resourceManager.getStringSync($r('app.string.input_empty_tips')) })
+      return
+    }
+    console.log('login clicked')
+    router.replaceUrl({ url: 'pages/Main' });
   }
 
   build() {

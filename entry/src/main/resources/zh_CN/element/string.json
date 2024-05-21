@@ -47,6 +47,26 @@
     {
       "name": "other_login_method",
       "value": "其他登录方式"
+    },
+    {
+      "name": "input_empty_tips",
+      "value": "输入为空"
+    },
+    {
+      "name": "mainPage_title",
+      "value": "工作目标"
+    },
+    {
+      "name": "mainPage_subTarget",
+      "value": "子目标"
+    },
+    {
+      "name": "mainPage_total_progress",
+      "value": "整体进度"
+    },
+    {
+      "name": "mainPage_update_time",
+      "value": "更新时间"
     }
   ]
 }

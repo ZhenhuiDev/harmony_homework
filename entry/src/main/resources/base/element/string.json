@@ -47,6 +47,26 @@
     {
       "name": "other_login_method",
       "value": "Other Method"
+    },
+    {
+      "name": "input_empty_tips",
+      "value": "Input is empty"
+    },
+    {
+      "name": "mainPage_title",
+      "value": "Work Target"
+    },
+    {
+      "name": "mainPage_subTarget",
+      "value": "Sub Target"
+    },
+    {
+      "name": "mainPage_total_progress",
+      "value": "Total Progress"
+    },
+    {
+      "name": "mainPage_update_time",
+      "value": "Update Time"
     }
   ]
 }
