@@ -13,6 +13,14 @@
       "value": "label"
     },
     {
+      "name": "confirm",
+      "value": "确定"
+    },
+    {
+      "name": "cancel",
+      "value": "取消"
+    },
+    {
       "name": "login_page",
       "value": "登录页面"
     },
@@ -67,6 +75,34 @@
     {
       "name": "mainPage_update_time",
       "value": "更新时间"
+    },
+    {
+      "name": "mainPage_add",
+      "value": "添加"
+    },
+    {
+      "name": "mainPage_delete",
+      "value": "删除"
+    },
+    {
+      "name": "mainPage_chose_all",
+      "value": "全选"
+    },
+    {
+      "name": "mainPage_chose_edit",
+      "value": "编辑"
+    },
+    {
+      "name": "mainPage_chose_cancel",
+      "value": "取消"
+    },
+    {
+      "name": "dialog_add",
+      "value": "添加子目标"
+    },
+    {
+      "name": "dialog_placeholder",
+      "value": "请输入子项目名称"
     }
   ]
 }

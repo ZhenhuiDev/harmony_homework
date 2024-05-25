@@ -13,6 +13,14 @@
       "value": "label"
     },
     {
+      "name": "confirm",
+      "value": "Confirm"
+    },
+    {
+      "name": "cancel",
+      "value": "Cancel"
+    },
+    {
       "name": "login_page",
       "value": "Login Page"
     },
@@ -67,6 +75,34 @@
     {
       "name": "mainPage_update_time",
       "value": "Update Time"
+    },
+    {
+      "name": "mainPage_add",
+      "value": "Add"
+    },
+    {
+      "name": "mainPage_delete",
+      "value": "Delete"
+    },
+    {
+      "name": "mainPage_chose_all",
+      "value": "All"
+    },
+    {
+      "name": "mainPage_chose_edit",
+      "value": "Edit"
+    },
+    {
+      "name": "mainPage_chose_cancel",
+      "value": "Cancel"
+    },
+    {
+      "name": "dialog_add",
+      "value": "Add sub target"
+    },
+    {
+      "name": "dialog_placeholder",
+      "value": "Please input target name"
     }
   ]
 }
