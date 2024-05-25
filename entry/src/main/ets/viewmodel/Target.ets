@@ -1,3 +1,4 @@
+@Observed
 export class Target {
   icon: Resource;
   name: ResourceStr;
@@ -14,6 +15,7 @@ export class Target {
   }
 }
 
+@Observed
 export class TargetItem {
   name: string;
   progress: number;
