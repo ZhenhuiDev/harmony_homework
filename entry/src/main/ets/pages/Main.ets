@@ -9,9 +9,10 @@ import { AddTargetDialog } from '../view/AddTargetDialog'
 @Component
 struct MainPage {
   @State target: Target = mainViewModel.getTarget()
+  @State targetItemList: TargetItem[] = this.target.targetItemList
   @State isEdit: Boolean = false
   onConfirm = (text: string) => {
-    console.log(`text = ${text}`)
+    this.targetItemList.push(new TargetItem(text, 0, Date.now()))
   }
   dialogController: CustomDialogController = new CustomDialogController({
     builder: AddTargetDialog({ onConfirm: this.onConfirm }),
@@ -41,7 +42,7 @@ struct MainPage {
       Line().width('100%').height(20)
 
       List({ space: 20 }) {
-        ForEach(this.target.targetItemList, (item: TargetItem) => {
+        ForEach(this.targetItemList, (item: TargetItem) => {
           ListItem() {
             SubTarget({ item: item })
           }
