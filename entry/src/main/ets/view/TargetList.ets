@@ -1,5 +1,5 @@
 import { TargetItem } from '../viewmodel/Target';
-import { SubTarget } from './SubTarget';
+import { TargetListItem } from './TargetListItem';
 import mainViewModel from '../viewmodel/MainViewModel'
 
 @Component
@@ -9,6 +9,7 @@ export default struct TargetList {
   @State selectAll: boolean = false;
   @State selectArray: Array<boolean> = [];
   @Consume overAllProgressChanged: boolean;
+  @State clickIndex: number = -1;
   onAddClick?: () => void;
 
   build() {
@@ -54,9 +55,10 @@ export default struct TargetList {
       List({ space: 20 }) {
         ForEach(this.itemList, (item: TargetItem, index: number | undefined) => {
           ListItem() {
-            SubTarget({
+            TargetListItem({
               isEdit: this.isEdit,
               item: item,
+              clickIndex: $clickIndex,
               index: index,
               selectArr: $selectArray,
             })

@@ -47,7 +47,7 @@ export struct TargetSummary {
         }.alignItems(HorizontalAlign.Start)
 
         Blank()
-        TargetProgress({ current: 5, total: 10 })
+        TargetProgress({ current: this.completedTasksNumber, total: this.totalTasksNumber })
       }.width('100%')
     }.padding(20).backgroundColor(Color.White).border({ radius: 10 })
   }

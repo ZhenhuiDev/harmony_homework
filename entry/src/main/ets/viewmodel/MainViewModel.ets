@@ -6,7 +6,7 @@ export class MainViewModel {
   private target = new Target(
     "第一季度运营目标",
     "实现用户量与用户活跃度提升",
-    [new TargetItem("子目标1", 50, getCurrentTime())]
+    [new TargetItem("子目标1", 0, getCurrentTime())]
   )
 
   getTarget(): Target {
@@ -31,6 +31,15 @@ export class MainViewModel {
         this.target.targetItemList.splice(i, 1);
       }
     }
+  }
+
+  updateProgress(index: number, updateValue: number, updateTime: string): boolean {
+    if (!this.getTargetItemList()[index]) {
+      return false;
+    }
+    this.getTargetItemList()[index].progress = updateValue;
+    this.getTargetItemList()[index].updateTime = updateTime;
+    return true;
   }
 }
 
