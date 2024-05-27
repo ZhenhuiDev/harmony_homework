@@ -17,6 +17,7 @@ export class Target {
 
 @Observed
 export class TargetItem {
+  isChosen: boolean;
   name: string;
   progress: number;
   updateTimestamp: number;
@@ -25,5 +26,6 @@ export class TargetItem {
     this.name = name;
     this.progress = progress;
     this.updateTimestamp = updateTimestamp;
+    this.isChosen = false;
   }
 }
