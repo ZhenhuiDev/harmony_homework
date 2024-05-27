@@ -1,20 +1,24 @@
 import { Target, TargetItem } from '../viewmodel/Target'
 import mainViewModel from '../viewmodel/MainViewModel'
-import { SubTarget } from '../view/SubTarget'
 import { TargetSummary } from '../view/TargetSummary'
 import { AddTargetDialog } from '../view/AddTargetDialog'
 import TargetList from '../view/TargetList'
+import { getCurrentTime } from '../util/DateUtil'
 
 @Preview
 @Entry
 @Component
 struct MainPage {
-  @State isEdit: boolean = false
   @State target: Target = mainViewModel.getTarget()
   @State targetItemList: TargetItem[] = mainViewModel.getTargetItemList()
+  @State totalTasksNumber: number = 0;
+  @State completedTasksNumber: number = 0;
+  @State latestUpdateDate: string = '-';
+  @Provide @Watch('onProgressChanged') overAllProgressChanged: boolean = false;
   onConfirm = (text: string) => {
-    mainViewModel.addTargetItem(new TargetItem(text, 0, Date.now()))
+    mainViewModel.addTargetItem(new TargetItem(text, 0, getCurrentTime()))
     this.targetItemList = mainViewModel.getTargetItemList()
+    this.overAllProgressChanged = !this.overAllProgressChanged;
   }
   dialogController: CustomDialogController = new CustomDialogController({
     builder: AddTargetDialog({ onConfirm: this.onConfirm }),
@@ -22,6 +26,12 @@ struct MainPage {
     alignment: DialogAlignment.Bottom,
     offset: { dx: 0, dy: -20 },
   })
+
+  onProgressChanged() {
+    this.totalTasksNumber = this.target.targetItemList.length;
+    this.completedTasksNumber = this.target.targetItemList.filter((item: TargetItem) => item.progress === 100).length;
+    this.latestUpdateDate = getCurrentTime();
+  }
 
   build() {
     Column() {
@@ -32,7 +42,13 @@ struct MainPage {
 
       Line().width('100%').height(20)
 
-      TargetSummary({ target: $target })
+      TargetSummary({
+        targetName: this.target.name,
+        targetDesc: this.target.desc,
+        latestUpdateDate: this.latestUpdateDate,
+        totalTasksNumber: this.totalTasksNumber,
+        completedTasksNumber: this.completedTasksNumber
+      })
 
       Line().width('100%').height(20)
 

@@ -1,31 +1,25 @@
 @Observed
 export class Target {
-  icon: Resource;
-  name: ResourceStr;
-  desc: ResourceStr;
-  updateTimestamp: number;
+  name: string;
+  desc: string;
   targetItemList: TargetItem[];
 
-  constructor(icon: Resource, name: ResourceStr, desc: ResourceStr, updateTimestamp: number, targetItemList: TargetItem[]) {
-    this.icon = icon;
+  constructor(name: string, desc: string, targetItemList: TargetItem[]) {
     this.name = name;
     this.desc = desc;
-    this.updateTimestamp = updateTimestamp;
     this.targetItemList = targetItemList;
   }
 }
 
 @Observed
 export class TargetItem {
-  isChosen: boolean;
   name: string;
   progress: number;
-  updateTimestamp: number;
+  updateTime: string;
 
-  constructor(name: string, progress: number, updateTimestamp: number) {
+  constructor(name: string, progress: number, updateTime: string) {
     this.name = name;
     this.progress = progress;
-    this.updateTimestamp = updateTimestamp;
-    this.isChosen = false;
+    this.updateTime = updateTime;
   }
 }

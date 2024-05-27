@@ -1,5 +1,6 @@
 import { TargetItem } from '../viewmodel/Target';
 import { SubTarget } from './SubTarget';
+import mainViewModel from '../viewmodel/MainViewModel'
 
 @Component
 export default struct TargetList {
@@ -7,6 +8,7 @@ export default struct TargetList {
   @State isEdit: boolean = false;
   @State selectAll: boolean = false;
   @State selectArray: Array<boolean> = [];
+  @Consume overAllProgressChanged: boolean;
   onAddClick?: () => void;
 
   build() {
@@ -69,7 +71,15 @@ export default struct TargetList {
         type: ButtonType.Capsule,
         stateEffect: false
       })
-        .onClick(() => this.onAddClick())
+        .onClick(() => {
+          if (this.isEdit) {
+            this.deleteSelected();
+            this.selectAllOrCancel(false);
+            this.selectAll = false;
+          } else {
+            this.onAddClick()
+          }
+        })
         .fontColor(this.isEdit ? $r('app.color.setting_button_fontColor') : $r('app.color.login_button_color'))
         .fontSize(15)
         .height(40)
@@ -88,11 +98,10 @@ export default struct TargetList {
   }
 
   deleteSelected() {
-    // TODO
-    // DataModel.deleteData(this.selectArray);
-    // this.targetData = DataModel.getData();
-    // this.overAllProgressChanged = !this.overAllProgressChanged;
-    // this.isEditMode = false;
+    mainViewModel.deleteData(this.selectArray);
+    this.itemList = mainViewModel.getTargetItemList();
+    this.overAllProgressChanged = !this.overAllProgressChanged;
+    this.isEdit = false;
   }
 
   isSelectAll(): boolean {

@@ -3,23 +3,22 @@ import { TargetProgress } from './TargetProgress'
 
 @Component
 export struct TargetSummary {
-  @Link target: Target
-
-  getUpdateTime(): string {
-    let date = new Date(this.target.updateTimestamp)
-    return `${date.getMonth()}/${date.getDay()}/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}`
-  }
+  @Prop targetName: string;
+  @Prop targetDesc: string
+  @Prop latestUpdateDate: string;
+  @Prop totalTasksNumber: number;
+  @Prop completedTasksNumber: number;
 
   build() {
     Column() {
       Row() {
-        Image(this.target.icon).width(80).height(80)
+        Image($r('app.media.icon')).width(80).height(80)
         Column() {
-          Text(this.target.name)
+          Text(this.targetName)
             .fontSize($r('app.float.big_text_size'))
             .fontWeight(FontWeight.Bold)
             .fontColor($r('app.color.title_text_color'))
-          Text(this.target.desc)
+          Text(this.targetDesc)
             .fontSize($r('app.float.little_text_size'))
             .fontColor($r('app.color.login_more_text_color'))
         }
@@ -43,7 +42,7 @@ export struct TargetSummary {
               .fontColor($r('app.color.title_text_color'))
           }
 
-          Text(this.getUpdateTime())
+          Text(this.latestUpdateDate)
 
         }.alignItems(HorizontalAlign.Start)
 

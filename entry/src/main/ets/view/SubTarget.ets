@@ -7,11 +7,6 @@ export struct SubTarget {
   @Link selectArr: Array<boolean>;
   public index: number = 0;
 
-  getUpdateTime(): string {
-    let date = new Date(this.item.updateTimestamp)
-    return `${date.getMonth()}/${date.getDay()}/${date.getFullYear()}`
-  }
-
   build() {
     Row() {
       Text(this.item.name).fontSize($r('app.float.normal_text_size'))
@@ -25,7 +20,7 @@ export struct SubTarget {
           Text($r('app.string.mainPage_update_time'))
             .fontSize($r('app.float.little_text_size'))
             .fontColor($r('app.color.login_more_text_color'))
-          Text(`:${this.getUpdateTime()}`)
+          Text(this.item.updateTime)
             .fontSize($r('app.float.little_text_size'))
             .fontColor($r('app.color.login_more_text_color'))
         }
