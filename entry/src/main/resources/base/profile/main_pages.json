@@ -1,6 +1,7 @@
 {
   "src": [
     "pages/Login",
-    "pages/Main"
+    "pages/Main",
+    "pages/Weather"
   ]
 }
